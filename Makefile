@@ -1,6 +1,6 @@
 CC=gcc
 FLAGS = -Wall -g
-ALL_M= isort.o sort txtfind.o txtfind
+ALL_M= isort.o isort txtfind.o txtfind
  
 all:$(ALL_M)
 
