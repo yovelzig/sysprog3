@@ -4,7 +4,7 @@ ALL_M= isort.o sort txtfind.o txtfind
  
 all:$(ALL_M)
 
-sort: isort.o
+isort: isort.o
 	$(CC) $(FLAGS) isort.o -o sort
 
 isort.o: isort.c

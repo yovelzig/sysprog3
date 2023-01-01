@@ -19,14 +19,9 @@ for (int i = 1; i < len; i++)
      j = i-1;
     while (j >= 0 && *(arr+j) > k)
     {
-        // *(arr + j + 1) = *(arr + j);
         j -= 1;
         count++;
     }
-    // if (j<0)
-    // {
-    //     j=0;
-    // }
     shift_element((arr+j+1), count);     
 }
 }
@@ -46,12 +41,6 @@ void printarr(int* arr,int len)
 }
 int main()
 {
-    // int arr[10]={10,9,2,11,4,31,7,8,3,6};
-    // insertion_sort(arr,10);
-    // for(int j=0 ; j<10;j++)
-    // {
-    //     printf("%d,",arr[j]);
-    // }
     int arr [SIZE] = {0};
     for(int i = 0; i<SIZE; i++)
     {

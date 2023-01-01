@@ -73,22 +73,6 @@ void print_lines(char *str)
         }
     }
 }
-// print the words that are similar to the string -- IF CHOSEN BY THE USER "b"
-// void print_similar_words(char *str)
-// {
-//     char line[LINE];
-//     while (fgets(line, LINE, stdin) != NULL)
-//     {
-//         char *word =strtok(line, " \t\r\n\0");
-//         for (; word != NULL; word = strtok(NULL, " \t\r\n\0"))
-//         {
-//             if (similiar(word, str, 1) == 1)
-//             {
-//                 printf("%s\n", word);
-//             }
-//         }
-//     }
-// }
 void print_similar_words(char *str) {
     char line[LINE];
     while (fgets(line, LINE, stdin) != NULL) {
