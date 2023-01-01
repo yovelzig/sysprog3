@@ -111,8 +111,8 @@ void print_similar_words(char *str)
     char line[LINE];
     while (fgets(line, LINE, stdin) != NULL)
     {
-        char *word =strtok(line, " \t\r\n\0");
-        for (; word != NULL; word = strtok(NULL, " \t\r\n\0"))
+        char *word =strtok(line, " \t\r\n\v\f");
+        for (; word != NULL; word = strtok(NULL, " \t\r\n\v\f"))
         {
             if (similar(word, str, 1) == 1)
             {
@@ -122,44 +122,20 @@ void print_similar_words(char *str)
     }
 }
 
-// int main()
-// {
-//     char line[LINE];
-//     fgets(line, LINE , stdin);
-//     char *tok = strtok(line, " ");   // token is the first string
-//     char *tok2 = strtok(NULL, " "); // token is the second string - the char
-//     char ch = tok2[0];              // finding the char at the end of the string
-//     if (ch == 'a')
-//     {
-//         print_lines(tok);
-//     }
-//     else if (ch == 'b')
-//     {
-//         print_similar_words(tok);
-//     }
-int main(int argc, char *argv[])
+int main()
 {
-	char buffer[(ROWS * LINE) + WORD + 10] = {0};
-	fread(buffer, (ROWS * LINE) + WORD + 10, 1, stdin);
-	// printf("Read: %s\n", buffer);
-	char word[WORD] = {'\0'};
-	int len = getword(buffer);
-	int i = 0;
-	for (; i < len; i++)
-	{
-		*(word + i) = *(buffer + i);
-	}
-	// printf("word: %s\n", word);
-	char c = *(buffer + (++i));
-	// printf("c: %c\n", c);
-	i = i + 5;
-	char *text = (buffer+i);
-
-
-	if (c == 'a') {
-		print_lines(word,text);
-	} else {
-		print_similar_words(word,text);
-	}
+    char line[LINE];
+    fgets(line, LINE , stdin);
+    char *tok = strtok(line, " ");   // token is the first string
+    char *tok2 = strtok(NULL, " "); // token is the second string - the char
+    char ch = tok2[0];              // finding the char at the end of the string
+    if (ch == 'a')
+    {
+        print_lines(tok);
+    }
+    else if (ch == 'b')
+    {
+        print_similar_words(tok);
+    }
     return 0;
 }
