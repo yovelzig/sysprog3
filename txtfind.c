@@ -52,7 +52,7 @@ int similar (char *s, char *t, int n)
             i++;
             count++;
         }
-        if (t[j]=='\0' && count==n)
+        if (count<=n)
         {
            return 1;
         }   
