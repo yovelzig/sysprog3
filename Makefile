@@ -12,6 +12,7 @@ isort.o: isort.c
 
 txtfind.o: txtfind.c
 	$(CC) $(FLAGS) -c txtfind.c
+	
 txtfind: txtfind.o
 	$(CC) $(FLAGS) txtfind.o -o txtfind 		
 

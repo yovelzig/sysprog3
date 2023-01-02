@@ -109,11 +109,12 @@ void print_lines(char *str)
 void print_similar_words(char *str)
 {
     char line[LINE];
+    char *delimiter = " \t\r\n\0";
     while (fgets(line, LINE, stdin) != NULL)
     {
-        char *word =strtok(line, " \t\r\n\v\f");
-        for (; word != NULL; word = strtok(NULL, " \t\r\n\v\f"))
-        {
+        char *word =strtok(line, delimiter);
+        for (; word != NULL; word = strtok(NULL, delimiter))
+        {    
             if (similar(word, str, 1) == 1)
             {
                 printf("%s\n", word);
