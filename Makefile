@@ -1,11 +1,11 @@
 CC=gcc
 FLAGS = -Wall -g
-ALL_M= isort.o isort txtfind.o txtfind
+ALL_M= isort txtfind
  
 all:$(ALL_M)
 
 isort: isort.o
-	$(CC) $(FLAGS) isort.o -o sort
+	$(CC) $(FLAGS) isort.o -o isort
 
 isort.o: isort.c
 	$(CC) $(FLAGS) -c isort.c
