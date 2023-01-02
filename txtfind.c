@@ -37,7 +37,7 @@ int similar (char *s, char *t, int n)
     int len2 = strlen(t);
     int count = 0, i=0, j=0;
     if ((len1 - len2) != n)
-    {
+    {printf("pr b");
         return 0;
     }
     while (i<len1 && j<len2)
@@ -54,6 +54,7 @@ int similar (char *s, char *t, int n)
         }
         if (count<=n)
         {
+            printf("pr c");
            return 1;
         }   
     }
@@ -64,7 +65,7 @@ void print_lines(char *str)
 {
     char line[LINE];
     while (fgets(line, LINE, stdin) != NULL)
-    {
+    {printf("no pr");
         if (substring(line, str) == 1)
         {
             char *token = strtok(line, "\r\n");
@@ -111,11 +112,10 @@ void print_similar_words(char *str)
     char *delimiter = " \t\r\n\0";
     while (fgets(line, LINE, stdin) != NULL)
     {
-        char *word =strtok(line, delimiter);
-        for (; word != NULL; word = strtok(NULL, delimiter))
+        for (char *word =strtok(line, delimiter); word != NULL; word = strtok(NULL, delimiter))
         {    
             if (similar(word, str, 1) == 1)
-            {
+            {printf("no a");
                 printf("%s\n", word);
             }
         }
