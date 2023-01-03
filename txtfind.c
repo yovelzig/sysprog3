@@ -47,6 +47,7 @@ int similar(char *s, char *t, int n)
             i++;
             j++;
         }
+        return 1;
         }
 
         if (len2 > len1)
