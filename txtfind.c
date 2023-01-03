@@ -53,7 +53,7 @@ int similar(char *s, char *t, int n)
         if (len2 > len1)
         {
             if ((len2 - len1) != n)
-            { // printf("pr b");
+            { 
                 return 0;
             }
             while (i <= len1 && j <= len2)
@@ -71,7 +71,7 @@ int similar(char *s, char *t, int n)
             }
             if (count == n)
             {
-                // printf("pr c");
+                
                 return 1;
             }
 
@@ -80,7 +80,7 @@ int similar(char *s, char *t, int n)
         else
         {
             if ((len1 - len2) != n)
-            { // printf("pr b");
+            { 
                 return 0;
             }
             while (i <= len1 && j <= len2)
@@ -98,18 +98,17 @@ int similar(char *s, char *t, int n)
             }
             if (count == n)
             {
-                // printf("pr c");
                 return 1;
             }
         }
         return 0;
     }
-    // print the lines that contain the string -- IF CHOSEN BY THE USER "a"
+   
     void print_lines(char *str)
     {
         char line[LINE];
         while (fgets(line, LINE, stdin) != NULL)
-        { // printf("no pr");
+        { 
             if (substring(line, str) == 1)
             {
                 char *token = strtok(line, "\r\n");
@@ -117,91 +116,40 @@ int similar(char *s, char *t, int n)
             }
         }
     }
-    // void print_lines(char *str) {
-    //     char line[LINE];
-    //     while (fgets(line, LINE, stdin) != NULL) {
-    //         // Iterate through the line one character at a time
-    //         for (int i = 0; line[i] != '\0'; i++) {
-    //             // If the character is not a space, tab, newline, or null terminator, it is part of a word
-    //             if (line[i] != ' ' && line[i] != '\t' && line[i] != '\r' && line[i] != '\n' && line[i] != '\0') {
-    //                 // Save the start index of the word
-    //                 int start = i;
-    //                 // Iterate until the end of the word is reached
-    //                 while (line[i] != ' ' && line[i] != '\t' && line[i] != '\r' && line[i] != '\n' && line[i] != '\0') {
-    //                     i++;
-    //                 }
-    //                 // Save the end index of the word
-    //                 int end = i - 1;
-    //                 // Calculate the length of the word
-    //                 int length = end - start + 1;
-    //                 // Create a buffer to hold a copy of the word
-    //                 char word[length + 1];
-    //                 // Copy the word from the line into the buffer
-    //                 for (int j = 0; j < length; j++) {
-    //                     word[j] = line[start + j];
-    //                 }
-    //                 // Add a null terminator to the end of the buffer
-    //                 word[length] = '\0';
-    //                 // Check if the word is similar to the target string
-    //                 if (similar(word, str, 1) == 1) {
-    //                     // If the word is similar, print the line
-    //                     printf("%s", line);
-    //                     break;
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
 
-    // void print_similar_words(char *str) {
-    //     char line[LINE];
-    //     while (fgets(line, LINE, stdin) != NULL) {
-    //         // Iterate through the line one character at a time
-    //         for (int i = 0; line[i] != '\0'; i++) {
-    //             // If the character is not a space, tab, newline, or null terminator, it is part of a word
-    //             if (line[i] != ' ' && line[i] != '\t' && line[i] != '\r' && line[i] != '\n' && line[i] != '\0') {
-    //                 // Save the start index of the word
-    //                 int start = i;
-    //                 // Iterate until the end of the word is reached
-    //                 while (line[i] != ' ' && line[i] != '\t' && line[i] != '\r' && line[i] != '\n' && line[i] != '\0') {
-    //                     i++;
-    //                 }
-    //                 // Save the end index of the word
-    //                 int end = i - 1;
-    //                 // Calculate the length of the word
-    //                 int length = end - start + 1;
-    //                 // Create a buffer to hold a copy of the word
-    //                 char word[length + 1];
-    //                 // Copy the word from the line into the buffer
-    //                 for (int j = 0; j < length; j++) {
-    //                     word[j] = line[start + j];
-    //                 }
-    //                 // Add a null terminator to the end of the word
-    //                 word[length] = '\0';
-    //                 // Check if the word is similar to the input string
-    //                 if (similar(word, str, 1) == 1) {
-    //                     printf("%s\n", word);
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-    void print_similar_words(char *str)
-    {
+    void print_similar_words(char *str) {
         char line[LINE];
-        char *delimiter = " \t\r\n\0";
-        while (fgets(line, LINE, stdin) != NULL)
-        {
-            for (char *word = strtok(line, delimiter); word != NULL; word = strtok(NULL, delimiter))
-            {
-                if (similar(word, str, 1) == 1)
-                { // printf("no a");
-                    printf("%s\n", word);
+        while (fgets(line, LINE, stdin) != NULL) {
+            // Iterate through the line one character at a time
+            for (int i = 0; line[i] != '\0'; i++) {
+                // If the character is not a space, tab, newline, or null terminator, it is part of a word
+                if (line[i] != ' ' && line[i] != '\t' && line[i] != '\r' && line[i] != '\n' && line[i] != '\0') {
+                    // Save the start index of the word
+                    int start = i;
+                    // Iterate until the end of the word is reached
+                    while (line[i] != ' ' && line[i] != '\t' && line[i] != '\r' && line[i] != '\n' && line[i] != '\0') {
+                        i++;
+                    }
+                    // Save the end index of the word
+                    int end = i - 1;
+                    // Calculate the length of the word
+                    int length = end - start + 1;
+                    // Create a buffer to hold a copy of the word
+                    char word[length + 1];
+                    // Copy the word from the line into the buffer
+                    for (int j = 0; j < length; j++) {
+                        word[j] = line[start + j];
+                    }
+                    // Add a null terminator to the end of the word
+                    word[length] = '\0';
+                    // Check if the word is similar to the input string
+                    if (similar(word, str, 1) == 1) {
+                        printf("%s\n", word);
+                    }
                 }
             }
         }
     }
-
     int main()
     {
         char line[LINE];
