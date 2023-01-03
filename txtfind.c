@@ -54,12 +54,13 @@ int similar (char *s, char *t, int n)
             j++;
             count++;
         }
-        if (count<=n)
+        }
+        if (count==n)
         {
             //printf("pr c");
            return 1;
         }   
-    }
+    
     return 0; 
     }
     else
@@ -80,12 +81,13 @@ int similar (char *s, char *t, int n)
             i++;
             count++;
         }
-        if (count<=n)
+        }
+        if (count==n)
         {
             //printf("pr c");
            return 1;
         }   
-    }
+    
     }
     return 0;    
 }
