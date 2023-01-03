@@ -32,6 +32,7 @@ void printarr(int* arr,int len)
         if (i==(len-1))
         {
            printf("%d",*(arr+i));
+           printf("\n");
         }
         else
         {
